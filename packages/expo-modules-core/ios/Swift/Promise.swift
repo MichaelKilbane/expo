@@ -7,6 +7,11 @@ public struct Promise: AnyArgument {
   public var resolver: ResolveClosure
   public var rejecter: RejectClosure
 
+  public init(resolver: @escaping ResolveClosure, rejecter: @escaping RejectClosure) {
+    self.resolver = resolver
+    self.rejecter = rejecter
+  }
+
   /**
    The rejecter that is compatible with the legacy `EXPromiseRejectBlock`.
    Necessary in some places not converted to Swift, such as `EXPermissionsMethodsDelegate`.
